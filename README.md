@@ -15,4 +15,5 @@ The standard is implemented by a separate starter repository, `ai-app-template`.
 | [docs/configuration-defaults.md](docs/configuration-defaults.md) | The settings the template reads as configuration, with their defaults, and the remaining assumptions |
 | [docs/developer-setup.md](docs/developer-setup.md) | Setting up a workstation to build applications from the template |
 | [adrs/](adrs/) | One architecture decision record (ADR) per decision, written from the [ADR template](adrs/0000-adr-template.md) |
-| [ROADMAP.md](ROADMAP.md) | What remains to be done on the standard and the template |
+
+The [work/](work/) folder holds the [work plan](work/README.md) for completing the standard and the template and building the shared platform code, with the status of each item in its [tracker](work/tracker.md). It is not part of the standard.
