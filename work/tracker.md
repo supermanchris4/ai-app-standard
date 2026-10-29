@@ -18,7 +18,7 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [S01.1.3](e01-standard-completion/f01-1-adrs.md#s0113-record-the-remaining-decisions) | Story | Record the remaining decisions | F01.1 | Now | Not started | | |
 | [S01.1.4](e01-standard-completion/f01-1-adrs.md#s0114-shrink-the-register) | Story | Shrink the register | F01.1 | Now | Not started | | |
 | [F01.2](e01-standard-completion/f01-2-open-checks.md) | Feature | Open checks | E01 | Now | Not started | | |
-| [S01.2.1](e01-standard-completion/f01-2-open-checks.md#s0121-github-plan-features-on-private-repositories) | Story | GitHub plan features on private repositories | F01.2 | Now | Blocked | | Repositories not yet on GitHub |
+| [S01.2.1](e01-standard-completion/f01-2-open-checks.md#s0121-github-plan-features-on-private-repositories) | Story | GitHub plan features on private repositories | F01.2 | Now | Not started | | |
 | [S01.2.2](e01-standard-completion/f01-2-open-checks.md#s0122-pyright-language-server-plugin) | Story | Pyright language server plugin | F01.2 | Now | Not started | | |
 | [E02](e02-template-specifications/README.md) | Epic | Template specifications | | | In progress | | |
 | [F02.1](e02-template-specifications/README.md#features) | Feature | Specification baseline | E02 | Done | Done | | |
