@@ -1,0 +1,7 @@
+# Dependabot proposes version updates as pull requests.
+version: 2
+updates:
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: weekly

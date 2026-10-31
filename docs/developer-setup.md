@@ -48,8 +48,17 @@ Test and production accounts are changed only through the pipelines.
 
 ## 5. Editor
 
-VS Code on Windows with the WSL extension opens folders in the Linux filesystem (`code ~/src/my-app` from Ubuntu). The Claude Code extension then runs inside WSL.
+VS Code on Windows with the WSL extension opens folders in the Linux filesystem (`code ~/src/my-app` from Ubuntu). The bottom-left corner then shows **WSL: Ubuntu**. The Claude Code extension runs inside WSL.
+
+Extensions are installed separately for WSL. In the Extensions view, install **Python** (Microsoft), which brings Pylance, with **Install in WSL: Ubuntu**.
 
 ## 6. First run of an application
 
-From the repository root, follow the commands in the application's `infra/local/README.md`: copy `.env.example` to `.env`, start the containers, apply the migrations and start the web interface.
+Once per clone, from the repository root:
+
+1. `pre-commit install`, so the secret scan runs before every commit. `pre-commit run --all-files` checks the whole repository once.
+2. `uv sync --directory apps/api`, which installs the Python version `pyproject.toml` requires and creates `apps/api/.venv` with the locked dependencies, including the development tools.
+3. Point VS Code at that environment: open a Python file, run **Python: Select Interpreter** from the command palette, choose **Enter interpreter path…** and give the full path, for example `/home/{user}/src/my-app/apps/api/.venv/bin/python`. A path relative to the repository is not accepted. The selected interpreter is shown by hovering over the `{ }` icon next to **Python** in the status bar, named after the `name` in `pyproject.toml`, for example **my-app-api (3.13.x)**.
+4. Follow the commands in the application's `infra/local/README.md`: copy `.env.example` to `.env`, start the containers, apply the migrations and start the web interface.
+
+After a dependency changes, `uv sync --directory apps/api` updates the same environment; VS Code needs no change.
