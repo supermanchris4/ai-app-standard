@@ -28,12 +28,12 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [S02.4.1](e02-template-specifications/f02-4-bootstrap-network.md#s0241-specify-the-minimal-network) | Story | Specify the minimal network | F02.4 | Now | Not started | | |
 | [F02.5](e02-template-specifications/README.md#f025-platform-code-references) | Feature | Platform code references | E02 | Next | Not started | | |
 | [F02.6](e02-template-specifications/README.md#features) | Feature | Template proof | E02 | Later | Not started | | |
-| [E03](e03-platform-code/README.md) | Epic | Platform code | | | Not started | | |
-| [F03.1](e03-platform-code/f03-1-platform-code-in-identity-spine.md) | Feature | Platform code in identity-spine | E03 | Now | Not started | | Delivered by identity-spine's rearchitecture |
-| [S03.1.1](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0311-build-the-api-platform-module) | Story | Build the API platform module | F03.1 | Now | Not started | | |
-| [S03.1.2](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0312-build-the-sign-in-and-access-module) | Story | Build the sign-in and access module | F03.1 | Now | Not started | | |
-| [S03.1.3](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0313-build-the-local-mock-identity-provider) | Story | Build the local mock identity provider | F03.1 | Now | Not started | | |
-| [S03.1.4](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0314-build-the-web-platform-module) | Story | Build the web platform module | F03.1 | Now | Not started | | |
+| [E03](e03-platform-code/README.md) | Epic | Platform code | | | In progress | | |
+| [F03.1](e03-platform-code/f03-1-platform-code-in-identity-spine.md) | Feature | Platform code in identity-spine | E03 | Now | In progress | | Delivered by identity-spine's rearchitecture; acceptance criterion 2 awaits identity-spine F01.12 (module boundaries) |
+| [S03.1.1](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0311-build-the-api-platform-module) | Story | Build the API platform module | F03.1 | Now | In progress | | Built in identity-spine F01.3, F01.4 and F01.8. Rate limiting moves out of the platform middleware, and the audit service moves into it (identity-spine decision 8), both in identity-spine F01.12 |
+| [S03.1.2](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0312-build-the-sign-in-and-access-module) | Story | Build the sign-in and access module | F03.1 | Now | Done | | identity-spine F01.5 |
+| [S03.1.3](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0313-build-the-local-mock-identity-provider) | Story | Build the local mock identity provider | F03.1 | Now | In progress | | Built in identity-spine S01.5.1; the application's roles and people move into configuration in identity-spine S01.12.3 |
+| [S03.1.4](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0314-build-the-web-platform-module) | Story | Build the web platform module | F03.1 | Now | Done | | identity-spine S01.7.1. The component kit is not part of it (identity-spine decision 9) |
 | [F03.2](e03-platform-code/README.md#features) | Feature | Platform repository | E03 | Later | Not started | | Decision 1 |
 | [F03.3](e03-platform-code/README.md#features) | Feature | Infrastructure modules and workflows | E03 | Later | Not started | | |
 | [F03.4](e03-platform-code/README.md#features) | Feature | Directory lookup | E03 | Later | Not started | | |
