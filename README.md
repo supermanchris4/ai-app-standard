@@ -17,3 +17,7 @@ The standard is implemented by a separate starter repository, `ai-app-template`.
 | [adrs/](adrs/) | One architecture decision record (ADR) per decision, written from the [ADR template](adrs/0000-adr-template.md) |
 
 The [work/](work/) folder holds the [work plan](work/README.md) for completing the standard and the template and building the shared platform code, with the status of each item in its [tracker](work/tracker.md). It is not part of the standard.
+
+## Licence
+
+Apache License 2.0: see [LICENSE](LICENSE).

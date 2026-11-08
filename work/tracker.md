@@ -34,6 +34,11 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [S03.1.2](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0312-build-the-sign-in-and-access-module) | Story | Build the sign-in and access module | F03.1 | Now | Done | | identity-spine F01.5 |
 | [S03.1.3](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0313-build-the-local-mock-identity-provider) | Story | Build the local mock identity provider | F03.1 | Now | In progress | | Built in identity-spine S01.5.1; the application's roles and people move into configuration in identity-spine S01.12.3 |
 | [S03.1.4](e03-platform-code/f03-1-platform-code-in-identity-spine.md#s0314-build-the-web-platform-module) | Story | Build the web platform module | F03.1 | Now | Done | | identity-spine S01.7.1. The component kit is not part of it (identity-spine decision 9) |
-| [F03.2](e03-platform-code/README.md#features) | Feature | Platform repository | E03 | Later | Not started | | Decision 1 |
-| [F03.3](e03-platform-code/README.md#features) | Feature | Infrastructure modules and workflows | E03 | Later | Not started | | |
+| [F03.2](e03-platform-code/f03-2-platform-repository.md) | Feature | Platform repository | E03 | Now | In progress | | Decision 1 decided 2026-11-08: extract now, into `ai-app-platform` |
+| [S03.2.1](e03-platform-code/f03-2-platform-repository.md#s0321-repository-foundation) | Story | Repository foundation | F03.2 | Now | Not started | |  |
+| [S03.2.2](e03-platform-code/f03-2-platform-repository.md#s0322-api-platform-package) | Story | API platform package | F03.2 | Now | Not started | | |
+| [S03.2.3](e03-platform-code/f03-2-platform-repository.md#s0323-web-platform-package) | Story | Web platform package | F03.2 | Now | Not started | |  |
+| [S03.2.4](e03-platform-code/f03-2-platform-repository.md#s0324-mock-identity-provider-image) | Story | Mock identity provider image | F03.2 | Now | Not started | |  |
+| [S03.2.5](e03-platform-code/f03-2-platform-repository.md#s0325-first-release) | Story | First release | F03.2 | Now | Not started | | |
+| [F03.3](e03-platform-code/README.md#features) | Feature | Infrastructure modules and workflows | E03 | Next | Not started | | After F03.2, into the same repository |
 | [F03.4](e03-platform-code/README.md#features) | Feature | Directory lookup | E03 | Later | Not started | | |
