@@ -27,7 +27,7 @@ The specifications named are in the template's `specs/` folder.
 | API platform | Settings base and deployed-environment checks, JSON logging, correlation and request logging middleware, the shared error format, the health endpoint, database access with the Secrets Manager credential provider, the audit service | `20-api-scaffold.md`, `31-audit.md` | uv git dependency with a tag and subdirectory |
 | Sign-in and access | Issuers from discovery, bearer token validation, web sign-in as backend-for-frontend, sessions, cross-site request forgery checks, `AuthContext`, actor types, `require_role` and the record-scope check | `50-auth.md`, `20-api-scaffold.md` | Part of the API platform package |
 | Local mock identity provider | The two-issuer OpenID Connect provider for developers' machines | `11-local-development.md` | Container image |
-| Web platform | The API module wrapper, session handling and route guard, environment banner, `LocalDate`, `NavLink` and the component kit | `40-ui.md` | Scoped npm package |
+| Web platform | The API module wrapper, session handling and route guard, environment banner, `LocalDate` and `NavLink`. The component kit stays in each application's `src/components/ui/`, as the template's `40-ui.md` places it (identity-spine decision 9) | `40-ui.md` | Scoped npm package |
 
 ## Stories
 
