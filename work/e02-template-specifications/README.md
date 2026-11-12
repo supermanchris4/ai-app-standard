@@ -34,18 +34,5 @@ An application is created from the template and built from its specifications wi
 | F02.2 Repository settings and versions | Enabler | Done | The pull request template, the `CODEOWNERS` stub and the pinned Python, Node and PostgreSQL versions |
 | F02.3 Guides | Enabler | Done | The developer setup guide in the standard, and the runbook stub and `TEMPLATE_USAGE.md` in the template |
 | F02.4 Bootstrap network | Enabler | Now | [f02-4-bootstrap-network.md](f02-4-bootstrap-network.md) |
-| F02.5 Platform code references | Enabler | Next | See below |
+| F02.5 Platform code references | Enabler | Now | [f02-5-platform-code-references.md](f02-5-platform-code-references.md) |
 | F02.6 Template proof | Enabler | Later | A new application created from the template and deployed end to end to AWS, with fixes made in the template ([decision 2](../README.md#decisions-needed)) |
-
-### F02.5 Platform code references
-
-The template describes the platform code as packages that applications consume, once the first release exists.
-
-**Outline acceptance criteria:**
-
-1. Each template specification that the platform code implements says which package and version provides each part, and what the application still writes.
-2. The template's README and its `apps/` and `infra/` folder descriptions show what an application writes and what it takes from the platform.
-3. `TEMPLATE_USAGE.md` explains how to take the platform packages.
-4. [D-01](../../docs/decision-register.md#d-01-shape-of-the-outcomes) and the [design](../../docs/design.md) describe the platform repository as a third outcome.
-
-**Depends on:** [F03.2](../e03-platform-code/README.md#features).

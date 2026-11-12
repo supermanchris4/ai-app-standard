@@ -6,7 +6,7 @@ Each entry gives the question, why it matters, the options considered and the de
 
 | ID | Decision | Outcome | Status |
 |---|---|---|---|
-| [D-01](#d-01-shape-of-the-outcomes) | Shape of the outcomes | A standard repository and a template repository, with shared platform code extracted later | Decided |
+| [D-01](#d-01-shape-of-the-outcomes) | Shape of the outcomes | Three repositories: the standard, the template, and the platform code released as versioned packages | Decided |
 | [D-02](#d-02-backend-language-and-framework) | Backend language and framework | Python and FastAPI, with Ruff and Pyright | Decided |
 | [D-03](#d-03-frontend-framework-and-hosting) | Frontend framework and hosting | Vite React single-page app on S3 and CloudFront, with the API as backend-for-frontend | Decided |
 | [D-04](#d-04-identity-and-authorisation-model) | Identity and authorisation model | Provider-neutral OIDC with Entra ID as the default, app roles, no role hierarchy, local mock identity provider | Decided |
@@ -41,6 +41,8 @@ Each entry gives the question, why it matters, the options considered and the de
 | C. Standard on a wiki or documentation site | The only repository is the template | One repository to maintain. Claude cannot read the wiki from the repository, so the template's specifications must carry everything Claude needs. |
 
 **Decision.** B. The template holds specifications rather than code, so each application generates its own platform code (settings, logging, sign-in, the mock identity provider, Terraform and workflows). That platform code is built first inside the first application, in clearly separated modules, and extracted into a shared, versioned platform repository once a second application needs it.
+
+**Update, 2026-11-12.** The platform repository is the third outcome, and was extracted sooner than planned (work plan decision 1, 2026-11-08): [`ai-app-platform`](https://github.com/supermanchris4/ai-app-platform) releases the API platform, the web platform and the mock identity provider as versioned packages, and the template's specifications say what each provides and what an application still writes (work plan F02.5). The Terraform modules and workflows, external users and the directory lookup follow (work plan F03.3 to F03.5). An application installs the packages at a version and keeps no copy, so a platform fix reaches every application as a new version instead of being made in each copy.
 
 ### D-02 Backend language and framework
 

@@ -2,6 +2,14 @@
 
 The architecture and development practices for applications built with AI coding assistants. Applications have a web interface, an API running in a container and a PostgreSQL database, hosted on AWS, with source code and pipelines in GitHub.
 
+The design is held in three repositories ([D-01](decision-register.md#d-01-shape-of-the-outcomes)):
+
+| Repository | Holds | An application |
+|---|---|---|
+| `ai-app-standard` | This design, the decisions behind it, the configuration defaults and the developer setup guide | Refers to it |
+| `ai-app-template` | The specifications, repository settings and instructions for the AI coding assistant | Is created from it, then owns its copy |
+| [`ai-app-platform`](https://github.com/supermanchris4/ai-app-platform) | The platform code every application needs, released as versioned packages: the API platform, the web platform and the mock identity provider | Installs the packages at a version and keeps no copy |
+
 Settings that vary by owner or account, rather than by design, are kept out of this design. They include the versions of languages, runtimes and the database, the permitted regions, resource tagging, log retention and the accessibility level. The template reads them as configuration, and their defaults are listed in [configuration-defaults.md](configuration-defaults.md).
 
 ```mermaid
@@ -129,6 +137,7 @@ flowchart LR
 ## Repository and AI working method
 
 - One monorepo per application: `apps/api`, `apps/web`, `infra/`, `specs/`, `adrs/`, `docs/` and `.github/workflows/`.
+- The platform code is installed from `ai-app-platform` at released versions, never generated or copied into an application. A fix to it is made there and reaches applications as a new version.
 - `CLAUDE.md` points the assistant at the specifications. The specifications are the source of truth for what is built, and a set of generation rules governs how code is written.
 - Behaviour changes update the relevant specification in the same change.
 - `.claude/settings.json` sets allowed commands and denies access to secrets files such as `.env` and `*.tfvars`. The assistant stops and reports if it finds a credential.
