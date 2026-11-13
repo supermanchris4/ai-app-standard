@@ -48,13 +48,13 @@ Work found in the first application: [extraction work](README.md#extraction-work
 
 As an application developer, I want the web platform as an npm package, so that my web interface imports it.
 
-**Acceptance criteria:** `packages/web` is built as a library from the first application's `apps/web/src/platform/`, with `react` and `react-router` as peer dependencies and its own type declarations, tested with Vitest, and published as `@supermanchris4/ai-app-platform-web` in GitHub Packages. The component kit is not part of it (the first application's delivery plan).
+**Acceptance criteria:** `packages/web` is built as a library from the first application's `apps/web/src/platform/`, with `react` and `react-router` as peer dependencies and its own type declarations, tested with Vitest, and published to GitHub Packages as the web platform package. The component kit is not part of it (the first application's delivery plan).
 
 ### S03.2.4 Mock identity provider image
 
 As an application developer, I want the mock identity provider as a released image, so that my local stack pulls it instead of building it.
 
-**Acceptance criteria:** `packages/mock-idp` is the first application's `infra/local/mock-idp/`, which already reads each application's roles and people from a file, with its tests in the pull request checks, published to GitHub Container Registry as `ghcr.io/supermanchris4/ai-app-platform-mock-idp`, scanned with Trivy.
+**Acceptance criteria:** `packages/mock-idp` is the first application's `infra/local/mock-idp/`, which already reads each application's roles and people from a file, with its tests in the pull request checks, published to GitHub Container Registry, scanned with Trivy.
 
 ### S03.2.5 First release
 
