@@ -26,11 +26,11 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [F02.3](e02-template-specifications/README.md#features) | Feature | Guides | E02 | Done | Done | | |
 | [F02.4](e02-template-specifications/f02-4-bootstrap-network.md) | Feature | Bootstrap network | E02 | Now | Not started | | |
 | [S02.4.1](e02-template-specifications/f02-4-bootstrap-network.md#s0241-specify-the-minimal-network) | Story | Specify the minimal network | F02.4 | Now | Not started | | |
-| [F02.5](e02-template-specifications/f02-5-platform-code-references.md) | Feature | Platform code references | E02 | Now | In progress | | |
-| [S02.5.1](e02-template-specifications/f02-5-platform-code-references.md#s0251-reference-the-platform-packages-in-the-specifications) | Story | Reference the platform packages in the specifications | F02.5 | Now | In progress | | |
-| [S02.5.2](e02-template-specifications/f02-5-platform-code-references.md#s0252-show-what-an-application-writes) | Story | Show what an application writes | F02.5 | Now | In progress | | |
-| [S02.5.3](e02-template-specifications/f02-5-platform-code-references.md#s0253-explain-how-to-take-the-packages) | Story | Explain how to take the packages | F02.5 | Now | In progress | | |
-| [S02.5.4](e02-template-specifications/f02-5-platform-code-references.md#s0254-describe-the-platform-repository-as-an-outcome) | Story | Describe the platform repository as an outcome | F02.5 | Now | In progress | | |
+| [F02.5](e02-template-specifications/f02-5-platform-code-references.md) | Feature | Platform code references | E02 | Now | Done | | `ai-app-template` pull request #1 and `ai-app-standard` pull request #6, merged 2026-11-12. The gaps it found became F03.5 External users |
+| [S02.5.1](e02-template-specifications/f02-5-platform-code-references.md#s0251-reference-the-platform-packages-in-the-specifications) | Story | Reference the platform packages in the specifications | F02.5 | Now | Done | | |
+| [S02.5.2](e02-template-specifications/f02-5-platform-code-references.md#s0252-show-what-an-application-writes) | Story | Show what an application writes | F02.5 | Now | Done | | |
+| [S02.5.3](e02-template-specifications/f02-5-platform-code-references.md#s0253-explain-how-to-take-the-packages) | Story | Explain how to take the packages | F02.5 | Now | Done | | The API platform installs from its git tag: Dependabot cannot check a release wheel's signed download link |
+| [S02.5.4](e02-template-specifications/f02-5-platform-code-references.md#s0254-describe-the-platform-repository-as-an-outcome) | Story | Describe the platform repository as an outcome | F02.5 | Now | Done | | |
 | [F02.6](e02-template-specifications/README.md#features) | Feature | Template proof | E02 | Later | Not started | | |
 | [E03](e03-platform-code/README.md) | Epic | Platform code | | | In progress | | |
 | [F03.1](e03-platform-code/f03-1-platform-code-in-identity-spine.md) | Feature | Platform code in identity-spine | E03 | Now | Done | | Delivered by identity-spine's rearchitecture, with its module boundaries settled in identity-spine F01.12 |
