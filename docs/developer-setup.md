@@ -184,10 +184,26 @@ code .
 
 The web platform package is in GitHub Packages, whose npm registry needs a classic personal access token even for a public package. Your Git sign-in does not cover it. The local mock identity provider image is in GitHub Container Registry and needs the same token only if the platform's images are private.
 
-Create a classic personal access token in GitHub with only the `read:packages` scope, and with the shortest expiry you can work with. Store it in Windows Credential Manager through Git Credential Manager. When prompted, enter your GitHub user name and paste the token as the password:
+Create a classic personal access token in GitHub with only the `read:packages` scope, and with the shortest expiry you can work with. No other scope is needed.
+
+Have Git Credential Manager hold credentials for the package registry's host. The settings apply to that host only, so they work whether Git's own sign-in to `github.com` goes through Git Credential Manager (step 5) or through the GitHub CLI. `provider generic` makes it store and return the token as given, rather than treating the host as GitHub and starting its own sign-in, and `allowWindowsAuth false` stops it probing the host, which answers 404 and makes it fail:
+
+```bash
+git config --global credential.https://npm.pkg.github.com.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+git config --global credential.https://npm.pkg.github.com.provider generic
+git config --global credential.https://npm.pkg.github.com.allowWindowsAuth false
+```
+
+Store the token in Windows Credential Manager. When prompted, enter your GitHub user name and paste the token as the password; the prompt may be a Windows dialog:
 
 ```bash
 printf 'protocol=https\nhost=npm.pkg.github.com\n\n' | git credential fill | git credential approve
+```
+
+Check that it is returned without a prompt. This shows the user name but not the token:
+
+```bash
+printf 'protocol=https\nhost=npm.pkg.github.com\n\n' | GIT_TERMINAL_PROMPT=0 git credential fill | grep -v '^password='
 ```
 
 Add this function to `~/.bashrc`. It reads the token from Windows Credential Manager when a tool needs it, so the token is never written to a file:
@@ -223,7 +239,11 @@ Then sign in once:
 gh_packages_token | docker login ghcr.io -u <github-user> --password-stdin
 ```
 
-When the token expires, create a new one and repeat the `git credential approve` step, and the `docker login` step if you used it.
+When the token expires, or after you regenerate it, create or copy the new one, remove the stored one so that Git prompts again, then repeat the store step, and the `docker login` step if you used it:
+
+```bash
+printf 'protocol=https\nhost=npm.pkg.github.com\n\n' | git credential reject
+```
 
 ## 8. Access AWS
 
