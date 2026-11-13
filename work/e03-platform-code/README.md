@@ -34,7 +34,7 @@ Every application built from the template needs sign-in, an API platform with se
 |---|---|---|---|
 | F03.1 Platform code in the first application | Enabler | Now | [f03-1-platform-code-in-the-first-application.md](f03-1-platform-code-in-the-first-application.md) |
 | F03.2 Platform repository | Enabler | Now | [f03-2-platform-repository.md](f03-2-platform-repository.md) |
-| F03.3 Infrastructure modules and workflows | Enabler | Next | The Terraform for each concern in the template's `12-aws-deployment.md`, and the pull request, infrastructure and deployment workflows in `13-delivery-pipeline.md`, as reusable modules and workflows. Like the platform modules, they are built first in the first application and moved here, and the first application then consumes them by tag. Claude validates them with `fmt` and `validate`; they are first applied through a pipeline. |
+| F03.3 Infrastructure modules and workflows | Enabler | Now | [f03-3-infrastructure-modules-and-workflows.md](f03-3-infrastructure-modules-and-workflows.md) |
 | F03.5 External users | Enabler | Later | External users in the API and web platform packages, as the template's `50-auth.md` specifies: the external issuer's sign-in, sessions and bearer tokens with the `external` actor type, and the web platform's sign-in for either provider. Version 0.1 has the external issuer's settings and discovery only; the first application has no external users. Found by F02.5 on 2026-11-12 |
 | F03.4 Directory lookup | Enabler | Later | The optional directory lookup endpoint in the API platform, as the template's `20-api-scaffold.md` specifies ([D-10](../../docs/decision-register.md#d-10-directory-lookups)) |
 
