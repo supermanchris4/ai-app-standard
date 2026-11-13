@@ -36,3 +36,4 @@ An application is created from the template and built from its specifications wi
 | F02.4 Bootstrap network | Enabler | Now | [f02-4-bootstrap-network.md](f02-4-bootstrap-network.md) |
 | F02.5 Platform code references | Enabler | Now | [f02-5-platform-code-references.md](f02-5-platform-code-references.md) |
 | F02.6 Template proof | Enabler | Later | A new application created from the template and deployed end to end to AWS, with fixes made in the template ([decision 2](../README.md#decisions-needed)) |
+| F02.7 Application rules | Enabler | Done | The rules every application follows whatever its domain, as `specs/23-application-rules.md` in the template, with their sources in the [design](../../docs/design.md#application-rules). The time within which withdrawn access ends is [ADR-0004](../../adrs/0004-identity-and-authorisation-model.md) sub-decision i. |

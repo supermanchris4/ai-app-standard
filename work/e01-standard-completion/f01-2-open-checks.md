@@ -21,7 +21,7 @@ Part of [E01 Standard completion](README.md) in the [work plan](../README.md). A
 
 As the owner of the standard, I want to know which GitHub features the account's plan provides on private repositories, so that the pipelines rely only on what exists.
 
-**Builds on:** [A-02](../../docs/configuration-defaults.md#a-02), [D-07](../../docs/decision-register.md#d-07-deployment-pipeline-and-environment-promotion), [D-15](../../docs/decision-register.md#d-15-github-secrets-variables-and-leak-prevention).
+**Builds on:** [A-02](../../docs/configuration-defaults.md#a-02), [ADR-0007](../../adrs/0007-deployment-pipeline-and-environment-promotion.md), [ADR-0015](../../adrs/0015-github-secrets-variables-and-leak-prevention.md).
 
 **Acceptance criteria:** A-02 records whether secret scanning, push protection and required reviewers on GitHub Environments are available; the template's `13-delivery-pipeline.md` states the fallback for any that are not.
 
@@ -34,7 +34,7 @@ As the owner of the standard, I want to know which GitHub features the account's
 
 As a developer, I want Claude Code to see Pyright's diagnostics as it edits, so that type errors are fixed as they are made.
 
-**Builds on:** [D-02](../../docs/decision-register.md#d-02-backend-language-and-framework).
+**Builds on:** [ADR-0002](../../adrs/0002-backend-language-and-framework.md).
 
 **Acceptance criteria:** the result records how Claude Code's `pyright-lsp` plugin finds the Pyright installed in the project's environment, and the plugin is enabled in the template's `.claude/settings.json` only if it works.
 

@@ -4,7 +4,7 @@ Part of the [work plan](../README.md). An enabler Epic: it builds the code every
 
 ## Pitch
 
-Every application built from the template needs sign-in, an API platform with settings, logging, errors, health, database access and audit, a web shell, a local identity provider, Terraform modules and pipelines. The template specifies all of these but holds no code. This Epic builds them once, in the first application, in modules kept separate from its domain code ([D-01](../../docs/decision-register.md#d-01-shape-of-the-outcomes)). When a second application needs them, they move to their own repository, tested against the template specifications and released by version tag.
+Every application built from the template needs sign-in, an API platform with settings, logging, errors, health, database access and audit, a web shell, a local identity provider, Terraform modules and pipelines. The template specifies all of these but holds no code. This Epic builds them once, in the first application, in modules kept separate from its domain code ([ADR-0001](../../adrs/0001-shape-of-the-outcomes.md)). When a second application needs them, they move to their own repository, tested against the template specifications and released by version tag.
 
 ## Benefits
 
@@ -36,7 +36,7 @@ Every application built from the template needs sign-in, an API platform with se
 | F03.2 Platform repository | Enabler | Now | [f03-2-platform-repository.md](f03-2-platform-repository.md) |
 | F03.3 Infrastructure modules and workflows | Enabler | Now | [f03-3-infrastructure-modules-and-workflows.md](f03-3-infrastructure-modules-and-workflows.md) |
 | F03.5 External users | Enabler | Later | External users in the API and web platform packages, as the template's `50-auth.md` specifies: the external issuer's sign-in, sessions and bearer tokens with the `external` actor type, and the web platform's sign-in for either provider. Version 0.1 has the external issuer's settings and discovery only; the first application has no external users. Found by F02.5 on 2026-11-12 |
-| F03.4 Directory lookup | Enabler | Later | The optional directory lookup endpoint in the API platform, as the template's `20-api-scaffold.md` specifies ([D-10](../../docs/decision-register.md#d-10-directory-lookups)) |
+| F03.4 Directory lookup | Enabler | Later | The optional directory lookup endpoint in the API platform, as the template's `20-api-scaffold.md` specifies ([ADR-0010](../../adrs/0010-directory-lookups.md)) |
 
 ## Extraction work found in the first application
 

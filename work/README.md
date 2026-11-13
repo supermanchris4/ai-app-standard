@@ -8,7 +8,7 @@ This plan covers the work that completes the AI application standard and the tem
 |---|---|---|
 | AI application standard | The architecture, decisions and development process for applications built with AI coding assistants | This repository: [docs/](../docs/) and [adrs/](../adrs/) |
 | AI application template | The specifications every application starts from. An application is created from it and then owns its copy. | The `ai-app-template` repository |
-| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([D-01](../docs/decision-register.md#d-01-shape-of-the-outcomes)). | `the first application` first; a platform repository later |
+| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([ADR-0001](../adrs/0001-shape-of-the-outcomes.md)). | `the first application` first; a platform repository later |
 | The first application | An existing application being rearchitected to the standard. It is the first application to build the platform code. | Its own private repository, with its delivery plan in `docs/delivery/` |
 
 ## How the plan is structured

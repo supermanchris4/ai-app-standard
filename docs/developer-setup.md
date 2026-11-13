@@ -1,6 +1,6 @@
 # Developer setup
 
-Setting up a Windows workstation to build applications from the template, following [D-11](decision-register.md#d-11-local-development-environment) and [D-14](decision-register.md#d-14-developer-access-to-aws). On native Linux or macOS, skip the WSL steps and install the same tools.
+Setting up a Windows workstation to build applications from the template, following [ADR-0011](../adrs/0011-local-development-environment.md) and [ADR-0014](../adrs/0014-developer-access-to-aws.md). On native Linux or macOS, skip the WSL steps and install the same tools.
 
 ## 1. WSL
 

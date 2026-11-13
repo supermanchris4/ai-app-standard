@@ -13,7 +13,7 @@ Part of [E02 Template specifications](README.md) in the [work plan](../README.md
 2. Where the template specifies something the packages do not yet provide, the specification says so and names the work plan item that will provide it: external users ([F03.5](../e03-platform-code/README.md#features)), the directory lookup ([F03.4](../e03-platform-code/README.md#features)), and the Terraform modules and workflows ([F03.3](../e03-platform-code/README.md#features)).
 3. The template's README and its `apps/` and `infra/` folder descriptions show what an application writes and what it takes from the platform.
 4. `TEMPLATE_USAGE.md` explains how to take the platform packages, on a developer's machine and in the application's pipelines.
-5. [D-01](../../docs/decision-register.md#d-01-shape-of-the-outcomes) and the [design](../../docs/design.md) describe the platform repository as a third outcome.
+5. [ADR-0001](../../adrs/0001-shape-of-the-outcomes.md) and the [design](../../docs/design.md) describe the platform repository as a third outcome.
 
 ## Dependencies
 

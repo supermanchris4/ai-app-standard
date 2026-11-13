@@ -23,7 +23,7 @@ None.
 
 As an application owner with a new AWS account, I want the bootstrap to create a minimal network, so that I can deploy without designing one.
 
-**Builds on:** [D-05](../../docs/decision-register.md#d-05-network-placement), [D-06](../../docs/decision-register.md#d-06-ingress-and-exposure-model), [D-09](../../docs/decision-register.md#d-09-aws-bootstrap-resources).
+**Builds on:** [ADR-0005](../../adrs/0005-network-placement.md), [ADR-0006](../../adrs/0006-ingress-and-exposure-model.md), [ADR-0009](../../adrs/0009-aws-bootstrap-resources.md).
 
 **Acceptance criteria:** the Feature's acceptance criteria.
 
