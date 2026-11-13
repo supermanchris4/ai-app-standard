@@ -4,7 +4,7 @@ Part of the [work plan](../README.md). An enabler Epic: it records every decisio
 
 ## Pitch
 
-Each of the 19 decisions in the [decision register](../../docs/decision-register.md) is decided, but its rationale lives only in the register. This Epic writes each one as an ADR, so the register shrinks to an index, and makes the few checks that could still change a decision.
+Each of the 19 decisions was decided in a decision register, with its rationale held only there. This Epic records each one as an ADR, with the [ADR index](../../adrs/README.md) replacing the register, and makes the few checks that could still change a decision.
 
 ## Benefits
 
@@ -18,7 +18,7 @@ Each of the 19 decisions in the [decision register](../../docs/decision-register
 
 ## Acceptance criteria
 
-1. Every decision in the register has an ADR in [adrs/](../../adrs/), and its register entry shows only its title, status and a link.
+1. Every decision has an ADR in [adrs/](../../adrs/), listed in the [index](../../adrs/README.md), and the register is removed.
 2. Each assumption in [configuration-defaults.md](../../docs/configuration-defaults.md#assumptions) is confirmed or its consequence applied.
 
 ## Dependencies

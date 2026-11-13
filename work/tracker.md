@@ -12,11 +12,11 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | ID | Level | Title | Parent | Horizon | Status | Issue | Note |
 |---|---|---|---|---|---|---|---|
 | [E01](e01-standard-completion/README.md) | Epic | Standard completion | | | In progress | | |
-| [F01.1](e01-standard-completion/f01-1-adrs.md) | Feature | ADRs | E01 | Now | Not started | | |
-| [S01.1.1](e01-standard-completion/f01-1-adrs.md#s0111-record-the-platform-decisions) | Story | Record the platform decisions | F01.1 | Now | Not started | | |
-| [S01.1.2](e01-standard-completion/f01-1-adrs.md#s0112-record-the-aws-and-pipeline-decisions) | Story | Record the AWS and pipeline decisions | F01.1 | Now | Not started | | |
-| [S01.1.3](e01-standard-completion/f01-1-adrs.md#s0113-record-the-remaining-decisions) | Story | Record the remaining decisions | F01.1 | Now | Not started | | |
-| [S01.1.4](e01-standard-completion/f01-1-adrs.md#s0114-shrink-the-register) | Story | Shrink the register | F01.1 | Now | Not started | | |
+| [F01.1](e01-standard-completion/f01-1-adrs.md) | Feature | ADRs | E01 | Now | In progress | | |
+| [S01.1.1](e01-standard-completion/f01-1-adrs.md#s0111-record-the-platform-decisions) | Story | Record the platform decisions | F01.1 | Now | In progress | | ADRs written from the register (T1); T2 open |
+| [S01.1.2](e01-standard-completion/f01-1-adrs.md#s0112-record-the-aws-and-pipeline-decisions) | Story | Record the AWS and pipeline decisions | F01.1 | Now | Done | | |
+| [S01.1.3](e01-standard-completion/f01-1-adrs.md#s0113-record-the-remaining-decisions) | Story | Record the remaining decisions | F01.1 | Now | Done | | ADR-0020 added as Proposed |
+| [S01.1.4](e01-standard-completion/f01-1-adrs.md#s0114-replace-the-register-with-the-index) | Story | Replace the register with the index | F01.1 | Now | Done | | Index in `adrs/README.md`; register removed |
 | [F01.2](e01-standard-completion/f01-2-open-checks.md) | Feature | Open checks | E01 | Now | In progress | | |
 | [S01.2.1](e01-standard-completion/f01-2-open-checks.md#s0121-github-plan-features-on-private-repositories) | Story | GitHub plan features on private repositories | F01.2 | Now | Done | | A-02 records each feature by plan, checked against GitHub's documentation and the first application's repository; C-14 notes the fallback. `ai-app-template` pull request #4: the template's `13-delivery-pipeline.md` has the plan table and a fallback for each missing feature, with `12-aws-deployment.md` and the runbook to match |
 | [S01.2.2](e01-standard-completion/f01-2-open-checks.md#s0122-pyright-language-server-plugin) | Story | Pyright language server plugin | F01.2 | Now | Not started | | |
@@ -32,6 +32,7 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [S02.5.3](e02-template-specifications/f02-5-platform-code-references.md#s0253-explain-how-to-take-the-packages) | Story | Explain how to take the packages | F02.5 | Now | Done | | The API platform installs from its git tag: Dependabot cannot check a release wheel's signed download link |
 | [S02.5.4](e02-template-specifications/f02-5-platform-code-references.md#s0254-describe-the-platform-repository-as-an-outcome) | Story | Describe the platform repository as an outcome | F02.5 | Now | Done | | |
 | [F02.6](e02-template-specifications/README.md#features) | Feature | Template proof | E02 | Later | Not started | | |
+| [F02.7](e02-template-specifications/README.md#features) | Feature | Application rules | E02 | Done | Done | | |
 | [E03](e03-platform-code/README.md) | Epic | Platform code | | | In progress | | |
 | [F03.1](e03-platform-code/f03-1-platform-code-in-the-first-application.md) | Feature | Platform code in the first application | E03 | Now | Done | | Delivered by the first application's rearchitecture, with its module boundaries settled before extraction |
 | [S03.1.1](e03-platform-code/f03-1-platform-code-in-the-first-application.md#s0311-build-the-api-platform-module) | Story | Build the API platform module | F03.1 | Now | Done | | Built in the first application. Rate limiting stayed in the application, and the audit service moved into the platform code, before extraction |
@@ -51,3 +52,4 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 | [S03.3.4](e03-platform-code/f03-3-infrastructure-modules-and-workflows.md#s0334-reference-them-in-the-template) | Story | Reference them in the template | F03.3 | Now | Done | | `ai-app-template` pull request #3: the modules and workflows in `10-architecture.md`'s platform packages; `12-aws-deployment.md` names the module behind each file and the bootstrap's modules, the TLS settings and the outputs contract; `13-delivery-pipeline.md` names the workflows each calling workflow uses, how they are pinned, and the repository settings; `TEMPLATE_USAGE.md`, `infra/README.md`, `README.md` and `CLAUDE.md` |
 | [F03.4](e03-platform-code/README.md#features) | Feature | Directory lookup | E03 | Later | Not started | | |
 | [F03.5](e03-platform-code/README.md#features) | Feature | External users | E03 | Later | Not started | | Found by F02.5: the packages support internal users only |
+| [F03.6](e03-platform-code/README.md#features) | Feature | Traceability check | E03 | Next | In progress | | `ai_app_platform.traceability` and the `traceability-check` workflow written on `ai-app-platform` branch `traceability-check`; not yet released (API package 0.2.0) |

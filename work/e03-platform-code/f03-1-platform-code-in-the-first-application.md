@@ -35,7 +35,7 @@ The specifications named are in the template's `specs/` folder.
 
 As an application developer, I want the API platform as a separate module, so that my API meets the template's settings, logging, error, health, database and audit rules without writing them.
 
-**Builds on:** [D-02](../../docs/decision-register.md#d-02-backend-language-and-framework), [D-13](../../docs/decision-register.md#d-13-secrets-management-and-rotation).
+**Builds on:** [ADR-0002](../../adrs/0002-backend-language-and-framework.md), [ADR-0013](../../adrs/0013-secrets-management-and-rotation.md).
 
 **Acceptance criteria:** tests cover each acceptance criterion in `20-api-scaffold.md` that does not depend on application wiring.
 
@@ -45,7 +45,7 @@ As an application developer, I want the API platform as a separate module, so th
 
 As an application developer, I want sign-in and access control as a separate module, so that every application signs people in and checks roles the same way.
 
-**Builds on:** [D-03](../../docs/decision-register.md#d-03-frontend-framework-and-hosting), [D-04](../../docs/decision-register.md#d-04-identity-and-authorisation-model).
+**Builds on:** [ADR-0003](../../adrs/0003-frontend-framework-and-hosting.md), [ADR-0004](../../adrs/0004-identity-and-authorisation-model.md).
 
 **Acceptance criteria:** tokens signed by any key other than the issuer's are rejected; the session cookie is `HttpOnly`, `Secure` and `SameSite=Lax`; a state-changing request without the cross-site request forgery token returns 403.
 
@@ -55,7 +55,7 @@ As an application developer, I want sign-in and access control as a separate mod
 
 As a developer, I want a local identity provider standing in for each issuer, so that I can sign in locally through the same code as in AWS.
 
-**Builds on:** [D-04](../../docs/decision-register.md#d-04-identity-and-authorisation-model), [D-11](../../docs/decision-register.md#d-11-local-development-environment).
+**Builds on:** [ADR-0004](../../adrs/0004-identity-and-authorisation-model.md), [ADR-0011](../../adrs/0011-local-development-environment.md).
 
 **Acceptance criteria:** as in the local mock identity provider section of `11-local-development.md`.
 
@@ -65,7 +65,7 @@ As a developer, I want a local identity provider standing in for each issuer, so
 
 As an application developer, I want the web shell as a separate module, so that my pages sign in, call the API and show dates the same way as every other application.
 
-**Builds on:** [D-03](../../docs/decision-register.md#d-03-frontend-framework-and-hosting).
+**Builds on:** [ADR-0003](../../adrs/0003-frontend-framework-and-hosting.md).
 
 **Acceptance criteria:** its component tests and accessibility checks pass; it holds no business rules and no token handling.
 
