@@ -8,8 +8,8 @@ This plan covers the work that completes the AI application standard and the tem
 |---|---|---|
 | AI application standard | The architecture, decisions and development process for applications built with AI coding assistants | This repository: [docs/](../docs/) and [adrs/](../adrs/) |
 | AI application template | The specifications every application starts from. An application is created from it and then owns its copy. | The `ai-app-template` repository |
-| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([D-01](../docs/decision-register.md#d-01-shape-of-the-outcomes)). | `identity-spine` first; a platform repository later |
-| identity-spine | An existing application being rearchitected to the standard. It is the first application to build the platform code. | The `identity-spine` repository, with its delivery plan in `docs/delivery/` |
+| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([D-01](../docs/decision-register.md#d-01-shape-of-the-outcomes)). | `the first application` first; a platform repository later |
+| The first application | An existing application being rearchitected to the standard. It is the first application to build the platform code. | Its own private repository, with its delivery plan in `docs/delivery/` |
 
 ## How the plan is structured
 
@@ -27,11 +27,11 @@ Detail follows distance:
 
 | Horizon | Work | Detail held |
 |---|---|---|
-| Now | The ADRs, the open checks, the bootstrap network and the platform code in identity-spine | A Feature file with Stories and Tasks |
-| Next | What follows once identity-spine runs on the platform code | A Feature summary with outline acceptance criteria, in the Epic file |
+| Now | The ADRs, the open checks, the bootstrap network and the platform code in the first application | A Feature file with Stories and Tasks |
+| Next | What follows once the first application runs on the platform code | A Feature summary with outline acceptance criteria, in the Epic file |
 | Later | Everything beyond | One line per Feature, in the Epic file |
 
-IDs are Epic `E01`, Feature `F01.1` and Story `S01.1.1`. identity-spine's plan uses IDs of the same form, so a reference to its items always names it, as in "identity-spine F03.1". Each Story records the decisions it builds on, so it can be rechecked if they change.
+IDs are Epic `E01`, Feature `F01.1` and Story `S01.1.1`. The first application keeps its own delivery plan with IDs of the same form; this plan describes that work rather than citing its IDs. Each Story records the decisions it builds on, so it can be rechecked if they change.
 
 The [tracker](tracker.md) records the status of every Epic, Feature and Story, and each item's GitHub issue where it has one. The plan files describe the work and are not updated as it progresses.
 
@@ -52,7 +52,7 @@ The [tracker](tracker.md) records the status of every Epic, Feature and Story, a
 |---|---|---|
 | [E01 Standard completion](e01-standard-completion/README.md) | Enabler | Every decision recorded as an ADR, and the checks the decisions still depend on made |
 | [E02 Template specifications](e02-template-specifications/README.md) | Enabler | The template's specifications, repository settings and guides completed, pointed at the platform code and proven by a new application |
-| [E03 Platform code](e03-platform-code/README.md) | Enabler | The code every application needs, built once in identity-spine from the template's specifications, then extracted and released by version |
+| [E03 Platform code](e03-platform-code/README.md) | Enabler | The code every application needs, built once in the first application from the template's specifications, then extracted and released by version |
 
 ## Sequence
 
@@ -75,7 +75,7 @@ flowchart LR
     F026[F02.6 Template proof]
   end
   subgraph E03[E03 Platform code]
-    F031[F03.1 Platform code<br/>in identity-spine] --> F032[F03.2 Platform<br/>repository]
+    F031[F03.1 Platform code<br/>in the first application] --> F032[F03.2 Platform<br/>repository]
     F031 --> F033[F03.3 Infrastructure modules<br/>and workflows]
   end
   F021 --> F031
@@ -91,21 +91,21 @@ flowchart LR
 
 | # | Decision | Why it matters | Needed by | Recommendation |
 |---|---|---|---|---|
-| 1 | When is the platform code extracted from identity-spine into its own repository? | Extracting too early builds packages around one application's needs; too late and a second application copies the code instead | F03.2 | **Decided 2026-11-08:** now, after identity-spine F01.12 settled the module boundaries, rather than when a second application starts. identity-spine's Epic E01 standardises its architecture, which includes consuming the platform code as packages (its F01.11 and F01.13). The risk of packages shaped around one application is met by F01.12, the template specifications the packages are tested against, and the packages' own tests. The repository is `ai-app-platform`, private |
-| 2 | Should identity-spine be deployed to AWS as the template proof, or a new application created from the template? | identity-spine was not created from the template, so it does not test `TEMPLATE_USAGE.md` | F02.6 | A small new application created from the template, deployed end to end |
-| 3 | How do the platform's tables (`auth_sessions`, `audit_records`) reach an application's database? | The package defines them, but each application has its own Alembic history, and identity-spine's already creates them | F03.2 S03.2.2 | **Decided 2026-11-08:** the application owns all its migrations. The package ships its models, and a new application's first migration creates the platform's tables from a migration the package documents. identity-spine's history is unchanged; it may later be replaced by a single baseline before its first AWS deployment, as identity-spine's own decision |
-| 4 | How do an application's machines and pipelines install packages from the private `ai-app-platform`? | GitHub's per-run token cannot read another private repository's code, which uv needs to install the API platform from a git tag; npm packages and images in GitHub Packages can grant a repository's runs access instead | F03.2 S03.2.5 | **Decided 2026-11-08:** `ai-app-standard`, `ai-app-template` and `ai-app-platform` are public, under the Apache License 2.0; applications such as identity-spine may stay private. The API platform then installs from a public git tag and the mock identity provider image pulls anonymously, with no credential. The web platform is published to GitHub Packages, whose npm registry needs a token even for public packages: an application's pipelines use their own run token with `packages: read`, and a developer a token with `read:packages`. No GitHub secret is added. Each repository's history was scanned for secrets first, with none found |
+| 1 | When is the platform code extracted from the first application into its own repository? | Extracting too early builds packages around one application's needs; too late and a second application copies the code instead | F03.2 | **Decided 2026-11-08:** now, after the first application's delivery plan settled the module boundaries, rather than when a second application starts. The first application's Epic E01 standardises its architecture, which includes consuming the platform code as packages (its adoption of the packages and of the infrastructure modules and workflows). The risk of packages shaped around one application is met by F01.12, the template specifications the packages are tested against, and the packages' own tests. The repository is `ai-app-platform`, private |
+| 2 | Should the first application be deployed to AWS as the template proof, or a new application created from the template? | The first application was not created from the template, so it does not test `TEMPLATE_USAGE.md` | F02.6 | A small new application created from the template, deployed end to end |
+| 3 | How do the platform's tables (`auth_sessions`, `audit_records`) reach an application's database? | The package defines them, but each application has its own Alembic history, and the first application's already creates them | F03.2 S03.2.2 | **Decided 2026-11-08:** the application owns all its migrations. The package ships its models, and a new application's first migration creates the platform's tables from a migration the package documents. The first application's history is unchanged; it may later be replaced by a single baseline before its first AWS deployment, as the first application's own decision |
+| 4 | How do an application's machines and pipelines install packages from the private `ai-app-platform`? | GitHub's per-run token cannot read another private repository's code, which uv needs to install the API platform from a git tag; npm packages and images in GitHub Packages can grant a repository's runs access instead | F03.2 S03.2.5 | **Decided 2026-11-08:** `ai-app-standard`, `ai-app-template` and `ai-app-platform` are public, under the Apache License 2.0; applications such as the first application may stay private. The API platform then installs from a public git tag and the mock identity provider image pulls anonymously, with no credential. The web platform is published to GitHub Packages, whose npm registry needs a token even for public packages: an application's pipelines use their own run token with `packages: read`, and a developer a token with `read:packages`. No GitHub secret is added. Each repository's history was scanned for secrets first, with none found |
 
 ## Dependencies
 
 | Dependency | Needed by |
 |---|---|
-| identity-spine's rearchitecture, as the first application to build the platform code | F03.1 |
+| The first application's rearchitecture, as it builds the platform code | F03.1 |
 | An AWS account, a domain for the load balancer certificate and an identity provider tenant | F02.6, F03.3 applied |
 
 ## Risks
 
 | Risk | Mitigation |
 |---|---|
-| The platform code takes the shape of identity-spine's needs | The platform code implements the template specifications, in modules kept separate from identity-spine's domain code. Code specific to identity-spine stays out of them. |
+| The platform code takes the shape of the first application's needs | The platform code implements the template specifications, in modules kept separate from the first application's domain code. Code specific to the first application stays out of them. |
 | AWS running costs while proving the template | Deploy only `dev`, and destroy it through the pipeline when the proof is done |
