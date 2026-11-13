@@ -153,7 +153,7 @@ flowchart LR
 - `.env` files hold only non-secret settings and throwaway values for local containers, such as the local database password. Local development needs no real secret: sign-in uses the local mock issuer and AWS access uses the developer's own single sign-on session.
 - Source code kept in the WSL Linux filesystem rather than on the Windows drive, so file watching works and access is fast.
 - AWS access through IAM Identity Center single sign-on, limited to development accounts. No access keys are held on laptops, and test and production change only through the pipelines.
-- One setup guide, [developer-setup.md](developer-setup.md), held in the standard rather than the template.
+- One setup guide, [developer-setup.md](developer-setup.md), held in the standard rather than the template, including the settings for a network that inspects encrypted traffic.
 
 ## Application rules
 
