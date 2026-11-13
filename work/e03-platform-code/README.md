@@ -37,6 +37,7 @@ Every application built from the template needs sign-in, an API platform with se
 | F03.3 Infrastructure modules and workflows | Enabler | Now | [f03-3-infrastructure-modules-and-workflows.md](f03-3-infrastructure-modules-and-workflows.md) |
 | F03.5 External users | Enabler | Later | External users in the API and web platform packages, as the template's `50-auth.md` specifies: the external issuer's sign-in, sessions and bearer tokens with the `external` actor type, and the web platform's sign-in for either provider. Version 0.1 has the external issuer's settings and discovery only; the first application has no external users. Found by F02.5 on 2026-11-12 |
 | F03.4 Directory lookup | Enabler | Later | The optional directory lookup endpoint in the API platform, as the template's `20-api-scaffold.md` specifies ([ADR-0010](../../adrs/0010-directory-lookups.md)) |
+| F03.6 Traceability check | Enabler | Next | A reusable workflow and its script in `ai-app-platform` for the template's Traceability pull request check (`13-delivery-pipeline.md`): every requirement ID a specification, a test or a register cites exists in `02-requirements.md`, every test names the requirements it verifies, and the generated requirements trace report is current. The template's `ci.yml` calls it once released. |
 
 ## Extraction work found in the first application
 
