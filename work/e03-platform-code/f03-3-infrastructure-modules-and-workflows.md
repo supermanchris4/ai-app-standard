@@ -13,7 +13,7 @@ Part of [E03 Platform code](README.md) in the [work plan](../README.md). An enab
 2. The reusable workflows from the first application (the pull request checks, Terraform checks, plan and apply, and the application build and deployment) are in `ai-app-platform`'s `.github/workflows/`, documented with their inputs, and checked with actionlint.
 3. The Terraform outputs the deployment workflow reads from an application's Terraform root are documented as a contract.
 4. The release workflow releases the modules at `terraform-v{version}` and the workflows at `workflows-v{version}`, each with a changelog, and version 0.1.0 of each is released.
-5. Each README says how an application takes them: a module by its git source at the tag, and a workflow by its commit SHA with the tag in a comment, as the template's `13-delivery-pipeline.md` requires of every action.
+5. Each README says how an application takes them: a module by its git source and a workflow by its path, each at the commit SHA the release tag names with the tag in a comment, as the template's `13-delivery-pipeline.md` requires of every action. The READMEs say to take the commit only from the release or the tag, since a public repository's address also serves commits pushed to its forks.
 6. The template's specifications say what the modules and workflows provide and what the application still writes, replacing F02.5's "until F03.3" notes.
 
 Nothing is applied to an AWS account: Claude validates and tests the modules, and they are first applied through an application's pipeline, when the first application adopts them.
