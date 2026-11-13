@@ -17,7 +17,7 @@ Part of [E02 Template specifications](README.md) in the [work plan](../README.md
 
 ## Dependencies
 
-- [F03.2](../e03-platform-code/f03-2-platform-repository.md), done: version 0.1 of each package is released, and identity-spine runs on them (identity-spine F01.11).
+- [F03.2](../e03-platform-code/f03-2-platform-repository.md), done: version 0.1 of each package is released, and the first application runs on them.
 
 ## Stories
 

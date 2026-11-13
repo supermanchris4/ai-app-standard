@@ -8,7 +8,7 @@ The design is held in three repositories ([D-01](decision-register.md#d-01-shape
 |---|---|---|
 | `ai-app-standard` | This design, the decisions behind it, the configuration defaults and the developer setup guide | Refers to it |
 | `ai-app-template` | The specifications, repository settings and instructions for the AI coding assistant | Is created from it, then owns its copy |
-| [`ai-app-platform`](https://github.com/supermanchris4/ai-app-platform) | The platform code every application needs, released as versioned packages: the API platform, the web platform and the mock identity provider | Installs the packages at a version and keeps no copy |
+| `ai-app-platform` | The platform code every application needs, released as versioned packages: the API platform, the web platform and the mock identity provider | Installs the packages at a version and keeps no copy |
 
 Settings that vary by owner or account, rather than by design, are kept out of this design. They include the versions of languages, runtimes and the database, the permitted regions, resource tagging, log retention and the accessibility level. The template reads them as configuration, and their defaults are listed in [configuration-defaults.md](configuration-defaults.md).
 

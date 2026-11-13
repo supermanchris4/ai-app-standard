@@ -40,5 +40,5 @@ As a developer, I want Claude Code to see Pyright's diagnostics as it edits, so 
 
 | Task | Description |
 |---|---|
-| T1 | Assess the plugin against identity-spine's environment |
+| T1 | Assess the plugin against the first application's environment |
 | T2 | Enable it in the template's `.claude/settings.json`, or record why not |
