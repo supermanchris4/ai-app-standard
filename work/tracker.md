@@ -11,14 +11,14 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 
 | ID | Level | Title | Parent | Horizon | Status | Issue | Note |
 |---|---|---|---|---|---|---|---|
-| [E01](e01-standard-completion/README.md) | Epic | Standard completion | | | Not started | | |
+| [E01](e01-standard-completion/README.md) | Epic | Standard completion | | | In progress | | |
 | [F01.1](e01-standard-completion/f01-1-adrs.md) | Feature | ADRs | E01 | Now | Not started | | |
 | [S01.1.1](e01-standard-completion/f01-1-adrs.md#s0111-record-the-platform-decisions) | Story | Record the platform decisions | F01.1 | Now | Not started | | |
 | [S01.1.2](e01-standard-completion/f01-1-adrs.md#s0112-record-the-aws-and-pipeline-decisions) | Story | Record the AWS and pipeline decisions | F01.1 | Now | Not started | | |
 | [S01.1.3](e01-standard-completion/f01-1-adrs.md#s0113-record-the-remaining-decisions) | Story | Record the remaining decisions | F01.1 | Now | Not started | | |
 | [S01.1.4](e01-standard-completion/f01-1-adrs.md#s0114-shrink-the-register) | Story | Shrink the register | F01.1 | Now | Not started | | |
-| [F01.2](e01-standard-completion/f01-2-open-checks.md) | Feature | Open checks | E01 | Now | Not started | | |
-| [S01.2.1](e01-standard-completion/f01-2-open-checks.md#s0121-github-plan-features-on-private-repositories) | Story | GitHub plan features on private repositories | F01.2 | Now | Not started | | |
+| [F01.2](e01-standard-completion/f01-2-open-checks.md) | Feature | Open checks | E01 | Now | In progress | | |
+| [S01.2.1](e01-standard-completion/f01-2-open-checks.md#s0121-github-plan-features-on-private-repositories) | Story | GitHub plan features on private repositories | F01.2 | Now | Done | | A-02 records each feature by plan, checked against GitHub's documentation and the first application's repository; C-14 notes the fallback. `ai-app-template` pull request #4: the template's `13-delivery-pipeline.md` has the plan table and a fallback for each missing feature, with `12-aws-deployment.md` and the runbook to match |
 | [S01.2.2](e01-standard-completion/f01-2-open-checks.md#s0122-pyright-language-server-plugin) | Story | Pyright language server plugin | F01.2 | Now | Not started | | |
 | [E02](e02-template-specifications/README.md) | Epic | Template specifications | | | In progress | | |
 | [F02.1](e02-template-specifications/README.md#features) | Feature | Specification baseline | E02 | Done | Done | | |

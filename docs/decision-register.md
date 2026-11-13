@@ -20,7 +20,7 @@ Each entry gives the question, why it matters, the options considered and the de
 | [D-12](#d-12-background-processing-pattern) | Background processing pattern | EventBridge Scheduler starting ECS tasks; an SQS worker when needed | Decided |
 | [D-13](#d-13-secrets-management-and-rotation) | Secrets management and rotation | Secrets Manager; database credentials fetched with a short cache; RDS-managed rotation | Decided |
 | [D-14](#d-14-developer-access-to-aws) | Developer access to AWS | IAM Identity Center single sign-on, with no access keys on laptops | Decided |
-| [D-15](#d-15-github-secrets-variables-and-leak-prevention) | GitHub secrets, variables and leak prevention | Identifiers as variables, environment-scoped secrets only where unavoidable, secret scanning in CI and before each commit | Decided |
+| [D-15](#d-15-github-secrets-variables-and-leak-prevention) | GitHub secrets, variables and leak prevention | Identifiers as repository variables named per environment, environment-scoped secrets only where unavoidable, secret scanning in CI and before each commit | Decided |
 | [D-16](#d-16-observability) | Observability | CloudWatch with Container Insights and AWS's recommended alarms | Decided |
 | [D-17](#d-17-reporting-and-data-supply) | Reporting and data supply | Operational screens in the application, defined exports for data supply, no generic data export | Decided |
 | [D-18](#d-18-api-consumers-and-path-naming) | API consumers and path naming | Every interface is an API client; paths name the resource | Decided |
@@ -275,11 +275,11 @@ RFC 10017, *OAuth 2.0 for Browser-Based Applications*, ranks three ways a browse
 | # | Fork | Options | Decision |
 |---|---|---|---|
 | a | Non-sensitive identifiers | GitHub secrets; GitHub variables | Variables |
-| b | Scope | Repository; GitHub Environment | Environment scope for anything that differs by stage |
+| b | Scope | Repository; GitHub Environment | Repository variables, named for the environment where they differ by stage, such as `TEST_DEPLOY_ROLE_ARN`. GitHub Environments carry the gates and the deploy roles' trust, not variables: a job that calls a reusable workflow cannot read an environment's variables to pass as inputs, and some plans have no environments on a private repository ([A-02](configuration-defaults.md#a-02)). Changed 2026-11-13 from environment scope, when the pipelines moved to the platform's reusable workflows. |
 | c | Sensitive values a pipeline needs | GitHub secrets; read from Secrets Manager at run time through OIDC | Read from Secrets Manager at run time. Where a GitHub secret is unavoidable, it is environment-scoped behind required reviewers. |
 | d | Leak prevention | GitHub push protection; a secret scan in the pull request checks; a pre-commit secret scan on developers' machines | All three where available. Push protection on private repositories depends on the GitHub plan ([A-02](configuration-defaults.md#a-02)), so the pull request checks run an open-source secret scanner as well. |
 
-**Evidence.** [GitHub: secret scanning and push protection](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection); practitioner guidance on [managing secrets in GitHub Actions](https://www.blacksmith.sh/blog/best-practices-for-managing-secrets-in-github-actions).
+**Evidence.** [GitHub: secret scanning and push protection](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection); [GitHub: reusing workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows), on what a calling job can and cannot set; practitioner guidance on [managing secrets in GitHub Actions](https://www.blacksmith.sh/blog/best-practices-for-managing-secrets-in-github-actions).
 
 **Decision.** As in the table.
 

@@ -125,12 +125,12 @@ flowchart LR
 
 ## Delivery pipeline
 
-- GitHub Actions, authenticating to AWS through OIDC. Deploy roles trust the repository's immutable identifier and a GitHub Environment.
+- GitHub Actions, authenticating to AWS through OIDC. Deploy roles trust the repository's immutable identifier and a GitHub Environment, or its `main` branch on a plan without environments.
 - A bootstrap script creates the OIDC provider, the Terraform deploy role (with a permissions boundary) and the state bucket. An operator runs it with their own single sign-on credentials.
 - Every pull request runs lint, format and type checks, unit tests, integration tests against PostgreSQL, a coverage check (80% for services, 70% overall), the image build and Terraform `fmt` and `validate`. It also runs code, dependency, secret, container and infrastructure scanning.
-- Each merge to `main` produces one build, which is deployed unchanged to each environment in turn, with only the configuration differing. Merging to `main` deploys it to `dev`. Test and production deployments need approval from a required reviewer, from `main` only.
+- Each merge to `main` produces one build, which is deployed unchanged to each environment in turn, with only the configuration differing. Merging to `main` deploys it to `dev`. Test and production deployments need approval from a required reviewer where the GitHub plan provides it, and are otherwise started only by someone agreed to approve releases ([A-02](configuration-defaults.md#a-02)); either way, from `main` only.
 - Infrastructure changes are planned on pull requests with a read-only role and applied from `main` through an approved environment.
-- Role ARNs, region, network IDs and backend settings are GitHub variables, scoped to GitHub Environments where they differ by stage. Any sensitive value a pipeline needs is read from Secrets Manager at run time.
+- Role ARNs, region, network IDs and backend settings are repository variables, named for the environment where they differ by stage. Any sensitive value a pipeline needs is read from Secrets Manager at run time.
 - Third-party actions are pinned to commit SHAs, with Dependabot proposing updates. Workflow tokens have no permissions by default and each job is granted only what it needs.
 - The web build is uploaded to S3 and the CloudFront cache is invalidated.
 
