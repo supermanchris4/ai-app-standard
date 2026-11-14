@@ -20,7 +20,7 @@ It determines whether there is a second container to run, patch and scale, which
 
 A single-page app is a set of static files: all rendering happens in the browser and it talks only to the API. Next.js runs a Node server that renders pages and can call the API on the user's behalf, which suits public, search-indexed sites or pages that must be assembled server-side. Public, search-indexed pages are a separate site rather than part of an application, so an application's web interface sits behind sign-in.
 
-RFC 10017, *OAuth 2.0 for Browser-Based Applications*, ranks three ways a browser application can handle sign-in, from most to least secure. In a **backend-for-frontend**, a server component signs the user in and holds the tokens, and the browser holds only a session cookie. In a **token-mediating backend**, a server signs the user in but gives the access token to the browser. In a **browser-based client**, the browser does everything and holds the tokens itself. The RFC recommends a backend-for-frontend for business applications and applications that handle personal data.
+RFC 10017, *OAuth 2.0 for Browser-Based Applications*, a Best Current Practice (BCP 212), presents three ways a browser application can handle sign-in "in decreasing order of security" (section 6). In a **backend-for-frontend**, a server component signs the user in and holds the tokens, and the browser holds only a session cookie. In a **token-mediating backend**, a server signs the user in but gives the access token to the browser. In a **browser-based client**, the browser does everything and holds the tokens itself. The RFC says a backend-for-frontend "is strongly recommended for business applications, sensitive applications, and applications that handle personal data" (section 6.1), and a browser-based client "is not recommended" for them (section 6.3).
 
 ## Options
 
@@ -32,7 +32,7 @@ RFC 10017, *OAuth 2.0 for Browser-Based Applications*, ranks three ways a browse
 
 ## Evidence
 
-[RFC 10017: OAuth 2.0 for Browser-Based Applications](https://www.rfc-editor.org/rfc/rfc10017.txt); [Better Auth security update](https://better-auth.com/blog/security-update-july-2026). Check the exact wording of RFC 10017's recommendation before quoting it in the ADR.
+[RFC 10017: OAuth 2.0 for Browser-Based Applications](https://www.rfc-editor.org/rfc/rfc10017.txt); [Better Auth security update](https://better-auth.com/blog/security-update-july-2026). The quotations were checked against the RFC's published text on 2026-11-14.
 
 ## Decision
 

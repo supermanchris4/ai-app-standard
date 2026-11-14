@@ -13,7 +13,7 @@ The status of every Epic, Feature and Story in the [work plan](README.md), and e
 |---|---|---|---|---|---|---|---|
 | [E01](e01-standard-completion/README.md) | Epic | Standard completion | | | In progress | | |
 | [F01.1](e01-standard-completion/f01-1-adrs.md) | Feature | ADRs | E01 | Now | In progress | | |
-| [S01.1.1](e01-standard-completion/f01-1-adrs.md#s0111-record-the-platform-decisions) | Story | Record the platform decisions | F01.1 | Now | In progress | | ADRs written from the register (T1); T2 open |
+| [S01.1.1](e01-standard-completion/f01-1-adrs.md#s0111-record-the-platform-decisions) | Story | Record the platform decisions | F01.1 | Now | In progress | | T1 and T2 done (RFC 10017 quotations checked); open until ADR-0004 is Decided |
 | [S01.1.2](e01-standard-completion/f01-1-adrs.md#s0112-record-the-aws-and-pipeline-decisions) | Story | Record the AWS and pipeline decisions | F01.1 | Now | Done | | |
 | [S01.1.3](e01-standard-completion/f01-1-adrs.md#s0113-record-the-remaining-decisions) | Story | Record the remaining decisions | F01.1 | Now | Done | | ADR-0020 added as Proposed |
 | [S01.1.4](e01-standard-completion/f01-1-adrs.md#s0114-replace-the-register-with-the-index) | Story | Replace the register with the index | F01.1 | Now | Done | | Index in `adrs/README.md`; register removed |
