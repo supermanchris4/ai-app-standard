@@ -8,7 +8,7 @@ This plan covers the work that completes the AI application standard and the tem
 |---|---|---|
 | AI application standard | The architecture, decisions and development process for applications built with AI coding assistants | This repository: [docs/](../docs/) and [adrs/](../adrs/) |
 | AI application template | The specifications every application starts from. An application is created from it and then owns its copy. | The `ai-app-template` repository |
-| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([ADR-0001](../adrs/0001-shape-of-the-outcomes.md)). | `the first application` first; a platform repository later |
+| Platform code | The code every application needs, such as settings, logging, sign-in and sessions, the mock identity provider, the web shell, Terraform modules and reusable workflows. Built first inside the first application, then extracted into shared, versioned packages ([ADR-0001](../adrs/0001-shape-of-the-outcomes.md)). | Built in the first application, then extracted into the public `ai-app-platform` repository ([Decision 1](#decisions-needed)) |
 | The first application | An existing application being rearchitected to the standard. It is the first application to build the platform code. | Its own private repository, with its delivery plan in `docs/delivery/` |
 
 ## How the plan is structured
@@ -27,8 +27,8 @@ Detail follows distance:
 
 | Horizon | Work | Detail held |
 |---|---|---|
-| Now | The ADRs, the open checks, the bootstrap network and the platform code in the first application | A Feature file with Stories and Tasks |
-| Next | What follows once the first application runs on the platform code | A Feature summary with outline acceptance criteria, in the Epic file |
+| Now | The ADRs, the open checks and the bootstrap network | A Feature file with Stories and Tasks |
+| Next | The template proof, and what follows it | A Feature summary with outline acceptance criteria, in the Epic file |
 | Later | Everything beyond | One line per Feature, in the Epic file |
 
 IDs are Epic `E01`, Feature `F01.1` and Story `S01.1.1`. The first application keeps its own delivery plan with IDs of the same form; this plan describes that work rather than citing its IDs. Each Story records the decisions it builds on, so it can be rechecked if they change.
@@ -71,12 +71,12 @@ flowchart LR
   subgraph E02[E02 Template specifications]
     F021[F02.1 to F02.3<br/>Baseline, settings, guides: done]
     F024[F02.4 Bootstrap network]
-    F025[F02.5 Platform code<br/>references]
+    F025[F02.5 Platform code<br/>references: done]
     F026[F02.6 Template proof]
   end
   subgraph E03[E03 Platform code]
-    F031[F03.1 Platform code<br/>in the first application] --> F032[F03.2 Platform<br/>repository]
-    F031 --> F033[F03.3 Infrastructure modules<br/>and workflows]
+    F031[F03.1 Platform code<br/>in the first application: done] --> F032[F03.2 Platform<br/>repository: done]
+    F031 --> F033[F03.3 Infrastructure modules<br/>and workflows: done]
   end
   F021 --> F031
   F024 --> F033
@@ -91,7 +91,7 @@ flowchart LR
 
 | # | Decision | Why it matters | Needed by | Recommendation |
 |---|---|---|---|---|
-| 1 | When is the platform code extracted from the first application into its own repository? | Extracting too early builds packages around one application's needs; too late and a second application copies the code instead | F03.2 | **Decided 2026-11-08:** now, after the first application's delivery plan settled the module boundaries, rather than when a second application starts. The first application's Epic E01 standardises its architecture, which includes consuming the platform code as packages (its adoption of the packages and of the infrastructure modules and workflows). The risk of packages shaped around one application is met by F01.12, the template specifications the packages are tested against, and the packages' own tests. The repository is `ai-app-platform`, private |
+| 1 | When is the platform code extracted from the first application into its own repository? | Extracting too early builds packages around one application's needs; too late and a second application copies the code instead | F03.2 | **Decided 2026-11-08:** now, after the first application's delivery plan settled the module boundaries, rather than when a second application starts. The first application's Epic E01 standardises its architecture, which includes consuming the platform code as packages (its adoption of the packages and of the infrastructure modules and workflows). The risk of packages shaped around one application is met by F01.12, the template specifications the packages are tested against, and the packages' own tests. The repository is `ai-app-platform`, public ([Decision 4](#decisions-needed)) |
 | 2 | Should the first application be deployed to AWS as the template proof, or a new application created from the template? | The first application was not created from the template, so it does not test `TEMPLATE_USAGE.md` | F02.6 | A small new application created from the template, deployed end to end |
 | 3 | How do the platform's tables (`auth_sessions`, `audit_records`) reach an application's database? | The package defines them, but each application has its own Alembic history, and the first application's already creates them | F03.2 S03.2.2 | **Decided 2026-11-08:** the application owns all its migrations. The package ships its models, and a new application's first migration creates the platform's tables from a migration the package documents. The first application's history is unchanged; it may later be replaced by a single baseline before its first AWS deployment, as the first application's own decision |
 | 4 | How do an application's machines and pipelines install packages from the private `ai-app-platform`? | GitHub's per-run token cannot read another private repository's code, which uv needs to install the API platform from a git tag; npm packages and images in GitHub Packages can grant a repository's runs access instead | F03.2 S03.2.5 | **Decided 2026-11-08:** `ai-app-standard`, `ai-app-template` and `ai-app-platform` are public, under the Apache License 2.0; applications such as the first application may stay private. The API platform then installs from a public git tag and the mock identity provider image pulls anonymously, with no credential. The web platform is published to GitHub Packages, whose npm registry needs a token even for public packages: an application's pipelines use their own run token with `packages: read`, and a developer a token with `read:packages`. No GitHub secret is added. Each repository's history was scanned for secrets first, with none found |
